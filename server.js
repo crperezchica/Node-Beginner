@@ -1,8 +1,9 @@
 //requires http module thru node.js and makes it avaiable through variable http
 //we are able to make sure of node.js http module by requiring it and assiging the result of the require to a local variable
 //making our local variable an object that carries all the methods the "http" module provides
-var http = require("http");
-var url = require("url"); // created to distinguish requests based on the URL path requested
+var http = require('http');
+var url = require('url'); // created to distinguish requests based on the URL path requested
+
 
 //createServer is a function call that http module offers
 //function returns an object and this object has a method named .listen
@@ -29,15 +30,15 @@ function start(route, handle) {
         var pathname = url.parse(request.url).pathname;
         console.log("Request for " + pathname + " received.");
 
-        route(handle, pathname);
-
+        
         response.writeHead(200, {"Content-Type": "text/plain"}); //when request recieved sends an HTTP status and content-type in the HTTP response header
-        response.write("Hello World"); // function sends text in the HTTP respone body
+        var content = route(handle, pathname);
+        response.write(content); // function sends text in the HTTP respone body
         response.end();//to finish response
     }
     http.createServer(onRequest).listen(8888);
     console.log("Server has started");
 }
 
-// exports.start = start;
-module.exports = start;
+exports.start = start;
+

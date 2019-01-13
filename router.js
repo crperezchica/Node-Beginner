@@ -6,8 +6,8 @@ function route(handle, pathname) {
     handle[pathname] ();
   } else {
     console.log("No request handler found for " + pathname);
+    return "404 Not Found"; //If request could not be routed
   }
 }
 
-// exports.route = route;
-module.exports = route;
+exports.route = route;
