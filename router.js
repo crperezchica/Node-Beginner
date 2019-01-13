@@ -1,12 +1,14 @@
 
 //Checking to see if request handler for the given pathname exists, if it does it calls the according function
-function route(handle, pathname) {
+function route(handle, pathname, response) {
   console.log("About to route a request for " + pathname);
   if (typeof handle[pathname] === 'function') {
-    handle[pathname] ();
+    handle[pathname](response);
   } else {
     console.log("No request handler found for " + pathname);
-    return "404 Not Found"; //If request could not be routed
+    response.writeHead(404, {"Content-Type": "text/plain"});
+    response.write("404 Not Found");
+    response.end(); 
   }
 }
 
