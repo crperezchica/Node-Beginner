@@ -21,7 +21,7 @@ var url = require("url"); // created to distinguish requests based on the URL pa
 
 //created start function to export the function that starts the server
 //allowing to start our HTTP in index.js
-function start() {
+function start(route, handle) {
     //when callback fires and onRequest() function gets triggered two parameters passed into it: request and response
     //request and response are objects 
     //-> use their methods to handle the details of the HTTP request and respond to request
@@ -29,7 +29,7 @@ function start() {
         var pathname = url.parse(request.url).pathname;
         console.log("Request for " + pathname + " received.");
 
-        route(pathname);
+        route(handle, pathname);
 
         response.writeHead(200, {"Content-Type": "text/plain"}); //when request recieved sends an HTTP status and content-type in the HTTP response header
         response.write("Hello World"); // function sends text in the HTTP respone body
@@ -39,4 +39,5 @@ function start() {
     console.log("Server has started");
 }
 
-exports.start = start;
+// exports.start = start;
+module.exports = start;
