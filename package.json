@@ -1,0 +1,24 @@
+{
+  "name": "node-beginner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crperezchica/Node-Beginner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crperezchica/Node-Beginner/issues"
+  },
+  "homepage": "https://github.com/crperezchica/Node-Beginner#readme",
+  "devDependencies": {
+    "eslint": "^5.12.0"
+  }
+}
