@@ -2,14 +2,13 @@ var requestHandlers = require("./router");
 
 function start () {
   console.log("Request handler 'start' was called.");
+  var content = "empty";
   
-  function sleep(milliSeconds) {
-    var startTime = new Date().getTime();
-    while (new Date().getTime() < startTime + milliSeconds);
-  }
+  exec("ls - lah", function (err, stdout, stderr) {
+    content = stdout;
+  });
   
-  sleep(10000);
-  return "Hello Start";
+  return content;
 }
 
 function upload() {
