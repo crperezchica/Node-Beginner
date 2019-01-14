@@ -1,6 +1,6 @@
 var server = require('./server');
 var router = require('./router');
-var requestHandlers = require("./requestHandlers");
+var requestHandlers = require('./requestHandlers');
 
 //object of request hanlders
 //map of different URLs to different handlers
@@ -10,4 +10,4 @@ handle['/start'] = requestHandlers.start;
 handle['/upload'] = requestHandlers.upload;
 handle['/show'] = requestHandlers.show;
 
-server.start(router.route,handle);
+server.start(router.route, handle);
